@@ -1,0 +1,5 @@
+<resources>
+    <!--App strings-->
+    <string name="app_name">ProjectMVP</string>
+    <string name="btn_desc">Click</string>
+</resources>
