@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <style name="display_style">
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:textSize">@dimen/display_text</item>
-        <item name="android:background">@drawable/display_border</item>
-        <item name="android:minWidth">@dimen/display_min_width</item>
-        <item name="android:gravity">center</item>
+    <style name="user_layout_style">
+        <item name="android:layout_height">@dimen/user_layout_height</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:foreground">?attr/selectableItemBackground</item>
+        <item name="android:gravity">center_vertical</item>
     </style>
 
-    <style name="btn_style" parent="Widget.MaterialComponents.Button">
+    <style name="user_login_style">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">wrap_content</item>
-        <item name="backgroundTint">@color/main_btn_color</item>
-        <item name="android:minWidth">@dimen/btn_min_width</item>
+        <item name="android:layout_marginStart">@dimen/user_login_margin_start</item>
+        <item name="android:textSize">@dimen/user_login_text</item>
     </style>
 </resources>
