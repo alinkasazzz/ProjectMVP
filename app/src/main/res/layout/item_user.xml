@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/users_layout_style">
+
+    <TextView
+        android:id="@+id/name"
+        style="@style/user_name_style"
+        tools:text="name" />
+
+</LinearLayout>
