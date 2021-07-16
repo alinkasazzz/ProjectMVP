@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="user_layout_style">
+    <!--Users fragment-->
+    <style name="users_layout_style">
         <item name="android:layout_height">@dimen/user_layout_height</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:orientation">horizontal</item>
@@ -8,10 +9,23 @@
         <item name="android:gravity">center_vertical</item>
     </style>
 
-    <style name="user_login_style">
+    <style name="user_name_style">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_marginStart">@dimen/user_login_margin_start</item>
+        <item name="android:textSize">@dimen/user_login_text</item>
+    </style>
+
+    <!--Users info fragment-->
+    <style name="user_info_layout_style">
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="user_login_style">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
         <item name="android:textSize">@dimen/user_login_text</item>
     </style>
 </resources>

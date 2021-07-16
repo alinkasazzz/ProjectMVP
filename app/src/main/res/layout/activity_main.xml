@@ -1,60 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.MainActivity">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/display1"
-        style="@style/display_style"
-        app:layout_constraintBottom_toTopOf="@+id/button1"
-        app:layout_constraintEnd_toEndOf="@+id/button1"
-        app:layout_constraintStart_toStartOf="@+id/button1"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed" />
-
-    <TextView
-        android:id="@+id/display2"
-        style="@style/display_style"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
-        app:layout_constraintEnd_toEndOf="@+id/button2"
-        app:layout_constraintStart_toStartOf="@+id/button2"
-        app:layout_constraintTop_toBottomOf="@+id/button1" />
-
-    <TextView
-        android:id="@+id/display3"
-        style="@style/display_style"
-        app:layout_constraintBottom_toTopOf="@+id/button3"
-        app:layout_constraintEnd_toEndOf="@+id/button3"
-        app:layout_constraintStart_toStartOf="@+id/button3"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
-
-    <Button
-        android:id="@+id/button1"
-        style="@style/btn_style"
-        android:text="@string/btn_desc"
-        app:layout_constraintBottom_toTopOf="@+id/display2"
-        app:layout_constraintEnd_toEndOf="@+id/display2"
-        app:layout_constraintStart_toStartOf="@+id/display2"
-        app:layout_constraintTop_toBottomOf="@+id/display1" />
-
-    <Button
-        android:id="@+id/button2"
-        style="@style/btn_style"
-        android:text="@string/btn_desc"
-        app:layout_constraintBottom_toTopOf="@+id/display3"
-        app:layout_constraintEnd_toEndOf="@+id/display3"
-        app:layout_constraintStart_toStartOf="@+id/display3"
-        app:layout_constraintTop_toBottomOf="@+id/display2" />
-
-    <Button
-        android:id="@+id/button3"
-        style="@style/btn_style"
-        android:text="@string/btn_desc"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/display3" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>
