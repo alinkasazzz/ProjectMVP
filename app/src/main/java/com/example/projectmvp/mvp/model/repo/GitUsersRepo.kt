@@ -1,6 +1,9 @@
 package com.example.projectmvp.mvp.model.repo
 
 import com.example.projectmvp.mvp.model.entity.GitUser
+import io.reactivex.rxjava3.core.Single
+import io.reactivex.rxjava3.schedulers.Schedulers
+
 
 class GitUsersRepo {
     private val users = listOf(
@@ -12,7 +15,7 @@ class GitUsersRepo {
         GitUser("Надежда", "iNadya")
     )
 
-    fun getUsers(): List<GitUser> {
-        return users
-    }
+    fun getUsers(): Single<List<GitUser>> = Single.fromCallable {
+        users
+    }.subscribeOn(Schedulers.io())
 }

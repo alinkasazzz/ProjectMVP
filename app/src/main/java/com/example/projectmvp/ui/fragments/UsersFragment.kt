@@ -11,6 +11,8 @@ import com.example.projectmvp.ui.App
 import com.example.projectmvp.ui.BackBtnListener
 import com.example.projectmvp.ui.adapter.UsersRVAdapter
 import com.example.projectmvp.ui.navigations.AndroidScreens
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.core.Scheduler
 import moxy.MvpAppCompatFragment
 import moxy.ktx.moxyPresenter
 
@@ -20,7 +22,14 @@ class UsersFragment : MvpAppCompatFragment(R.layout.fragment_users), UsersView, 
     }
 
     private val binding: FragmentUsersBinding by viewBinding()
-    private val presenter by moxyPresenter { UsersPresenter(GitUsersRepo(), App.instance.router, AndroidScreens())}
+    private val presenter by moxyPresenter {
+        UsersPresenter(
+            GitUsersRepo(),
+            App.instance.router,
+            AndroidScreens(),
+            AndroidSchedulers.mainThread()
+        )
+    }
     private var adapter: UsersRVAdapter? = null
 
     override fun init() {

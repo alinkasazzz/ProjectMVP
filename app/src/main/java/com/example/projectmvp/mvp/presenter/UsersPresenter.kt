@@ -7,9 +7,15 @@ import com.example.projectmvp.mvp.presenter.list.IUserListPresenter
 import com.example.projectmvp.mvp.view.UsersView
 import com.example.projectmvp.mvp.view.list.UserItemView
 import com.github.terrakok.cicerone.Router
+import io.reactivex.rxjava3.core.Scheduler
 import moxy.MvpPresenter
 
-class UsersPresenter(private val usersRepo: GitUsersRepo, private val router: Router, private val screens: IScreens) :
+class UsersPresenter(
+    private val usersRepo: GitUsersRepo,
+    private val router: Router,
+    private val screens: IScreens,
+    private val uiScheduler: Scheduler
+) :
     MvpPresenter<UsersView>() {
     class UsersListPresenter : IUserListPresenter {
         val users = mutableListOf<GitUser>()
@@ -34,18 +40,23 @@ class UsersPresenter(private val usersRepo: GitUsersRepo, private val router: Ro
     }
 
     private fun loadData() {
-        usersListPresenter.users.clear()
-        usersListPresenter.users.addAll(usersRepo.getUsers())
-        viewState.updateList()
+        usersRepo.getUsers()
+            .observeOn(uiScheduler)
+            .subscribe({ users ->
+                usersListPresenter.users.addAll(users)
+                viewState.updateList()
+            }, {
+                it.printStackTrace()
+            })
     }
 
-    private fun setItemClickListener(){
+    private fun setItemClickListener() {
         usersListPresenter.itemClickListener = {
             router.navigateTo(screens.user(usersListPresenter.users[it.pos]))
         }
     }
 
-    fun backClick() : Boolean {
+    fun backClick(): Boolean {
         router.exit()
         return true
     }
