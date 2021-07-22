@@ -14,9 +14,8 @@ class UsersPresenter(
     private val usersRepo: GitUsersRepo,
     private val router: Router,
     private val screens: IScreens,
-    private val uiScheduler: Scheduler
-) :
-    MvpPresenter<UsersView>() {
+    private val uiScheduler: Scheduler,
+) : BaseMvpPresenter<UsersView>() {
     class UsersListPresenter : IUserListPresenter {
         val users = mutableListOf<GitUser>()
 
@@ -47,7 +46,7 @@ class UsersPresenter(
                 viewState.updateList()
             }, {
                 it.printStackTrace()
-            })
+            }).disposeOnDestroy()
     }
 
     private fun setItemClickListener() {
